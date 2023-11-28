@@ -4,6 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.example.sbb.answer.Answer;
+import com.example.sbb.answer.AnswerRepository;
+import com.example.sbb.question.Question;
+import com.example.sbb.question.QuestionRepository;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
