@@ -1,10 +1,11 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 
     <div layout:fragment="content">
 
+        <a th:href="@{/question/create}">질문 등록하기</a>
         <table>
             <thead>
             <tr>

@@ -1,6 +1,7 @@
 package com.example.sbb.question;
 
 import com.example.sbb.DataNotFoundException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -21,5 +22,13 @@ public class QuestionService {
             throw new DataNotFoundException("question not found");
         }
         return question.get();
+    }
+
+    public void create(String subject, String content) {
+        Question question = new Question();
+        question.setSubject(subject);
+        question.setContent(content);
+        question.setCreateDate(LocalDateTime.now());
+        this.questionRepository.save(question);
     }
 }
