@@ -14,13 +14,30 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="question, index : ${questionList}">
+            <tr th:each="question, index : ${paging}">
                 <td>
                     <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
                 </td>
                 <td th:text="${question.createDate}"></td>
             </tr>
             </tbody>
-        </table>        
+        </table>
+        <!-- 페이징 처리 시작 -->
+        <div th:if="${!paging.isEmpty()}" class="page-bar">
+            <ul>
+                <li th:classappend="${!paging.hasPrevious()} ? 'disabled'" class="previous-page">
+                    <a th:href="@{|?page=${paging.number - 1}|}"><span>이전</span></a>
+                </li>
+                <li th:each="page: ${#numbers.sequence(0, paging.totalPages - 1)}"
+                    th:if="${page >= paging.number - 5 and page <= paging.number + 5}"
+                    th:classappend="${page == paging.number} ? 'active'" class="page">
+                    <a th:href="@{|?page=${page}|}" th:text="${page}"></a>
+                </li>
+                <li th:classappend="${!paging.hasNext()} ? 'disabled'" class="next-page">
+                    <a th:href="@{|?page=${paging.number + 1}|}"><span>다음</span></a>
+                </li>
+            </ul>
+        </div>
+        <!-- 페이징 처리 끝 -->
     </div>
 </html>
