@@ -19,6 +19,7 @@ input[type=submit] {
     background-color: darksalmon;
 }
 
+/* 네비게이션바 */
 nav {
     display: flex;
     justify-content: space-between;
@@ -47,4 +48,28 @@ nav {
 .nav-item a {
     text-decoration: none;
     color: #333;
+}
+
+/* 페이지바 */
+.page-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-bar li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.page-bar li.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.page-bar li.active a {
+    font-weight: bold;
 }
