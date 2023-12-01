@@ -18,3 +18,33 @@ input[type=submit] {
 .err {
     background-color: darksalmon;
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    background-color: aquamarine;
+}
+
+.nav-item {
+    display: flex;
+}
+
+.nav-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item li {
+    margin-left: 15px;
+}
+
+.home {
+    font-weight: bold;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #333;
+}
