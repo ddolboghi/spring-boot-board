@@ -6,9 +6,7 @@
 <div layout:fragment="content">
     <h5>질문 등록</h5>
     <form th:action="@{/question/create}" th:object="${questionForm}" method="post">
-        <div role="alert" th:if="${#fields.hasAnyErrors()}">
-            <div th:each="err : ${#fields.allErrors()}" th:text="${err}" class="err"></div>
-        </div>
+        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
 
         <!-- 오류 경고 무시해도 됨 -->
         <div>
