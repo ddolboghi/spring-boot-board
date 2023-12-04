@@ -30,12 +30,14 @@ public class RepositoryTest {
 //		q1.setSubject("what is the jpa?");
 //		q1.setContent("I know that a little.");
 //		q1.setCreateDate(LocalDateTime.now());
+//      q1.setAuthor(null);
 //		this.questionRepository.save(q1);
 //
 //		Question q2 = new Question();
 //		q2.setSubject("what is the inversion of dependency?");
 //		q2.setContent("I wannna konw that.");
 //		q2.setCreateDate(LocalDateTime.now());
+//      q2.setAuthor(null);
 //		this.questionRepository.save(q2);
 //	}
 
