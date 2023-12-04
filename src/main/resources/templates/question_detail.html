@@ -9,6 +9,8 @@
         <div th:text="${question.content}"></div>
         <div><span th:if="${question.author != null}" th:text="${question.author.username}"></span></div>
         <div th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+        <div>modified at</div>
+        <div th:if="${question.modifyDate != null}" th:text="${#temporals.format(question.modifyDate, 'yyyy-MM-dd HH:mm')}"></div>
         <div>
             <a th:href="@{|/question/modify/${question.id}|}" sec:authorize="isAuthenticated()"
                th:if="${question.author != null and #authentication.getName() == question.author.username}"
@@ -26,8 +28,10 @@
         <div>
             <div class="answer-container" th:each="answer : ${question.answerList}">
                 <div class="answer-ele" th:text="${answer.content}"></div>
-                <div><span th:if="${answer.author != null}" th:text="${answer.author.username}"></span></div>
+                <div class="answer-ele"><span th:if="${answer.author != null}" th:text="${answer.author.username}"></span></div>
                 <div class="answer-ele" th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+                <div>modified at </div>
+                <div class="answer-ele" th:if="${answer.modifyDate != null}" th:text="${#temporals.format(answer.modifyDate, 'yyyy-MM-dd HH:mm')}"></div>
                 <div>
                     <a th:href="@{|/answer/modify/${answer.id}|}"
                         sec:authorize="isAuthenticated()"
