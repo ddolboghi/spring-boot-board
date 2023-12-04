@@ -28,10 +28,18 @@
                 <div class="answer-ele" th:text="${answer.content}"></div>
                 <div><span th:if="${answer.author != null}" th:text="${answer.author.username}"></span></div>
                 <div class="answer-ele" th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></div>
-                <div><a th:href="@{|/answer/modify/${answer.id}|}"
+                <div>
+                    <a th:href="@{|/answer/modify/${answer.id}|}"
                         sec:authorize="isAuthenticated()"
                         th:if="${answer.author != null and #authentication.getName() == answer.author.username}"
-                        th:text="수정"></a></div>
+                        th:text="수정"></a>
+                    <a class="delete"
+                       href="javascript:void(0);"
+                       th:data-uri="@{|/answer/delete/${answer.id}|}"
+                       sec:authorize="isAuthenticated()"
+                       th:if="${answer.author != null and answer.author.username == #authentication.getName()}"
+                       th:text="삭제"></a>
+                </div>
             </div>
         </div>
 
