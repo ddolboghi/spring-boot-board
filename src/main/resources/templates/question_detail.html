@@ -9,6 +9,11 @@
         <div th:text="${question.content}"></div>
         <div><span th:if="${question.author != null}" th:text="${question.author.username}"></span></div>
         <div th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+        <div>
+            <a th:href="@{|/question/modify/${question.id}|}" sec:authorize="isAuthenticated()"
+               th:if="${question.author != null and #authentication.getName() == question.author.username}"
+               th:text="수정"></a>
+        </div>
 
         <h5 th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
 
