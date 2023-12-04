@@ -1,6 +1,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}">
 
     <div layout:fragment="content">
@@ -18,7 +19,8 @@
 
         <form th:action="@{|/answer/create/${question.id}|}" th:object="${answerForm}" method="post">
             <div th:replace="~{form_errors :: formErrorsFragment}"></div>
-            <textarea th:field="*{content}" rows="15"></textarea>
+            <textarea sec:authorize="isAnonymous()" disabled th:field="*{content}" rows="15"></textarea>
+            <textarea sec:authorize="isAuthenticated()" th:field="*{content}" rows="15"></textarea>
             <input type="submit" value="답변 등록">
         </form>
     </div>
